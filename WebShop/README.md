@@ -1,32 +1,45 @@
-# React + TypeScript + Vite
+En Webbshop som säljer muggar
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Krav för Godkänt
 
-Currently, two official plugins are available:
+- [ ] Git & GitHub har använts
+- [ ] Projektmappen innehåller en README.md fil - (läs ovan för mer info)
+- [ ] Uppgiften lämnas in i tid!
+- [ ] Ett designsystem/komponentbibliotek används nästintill helt uteslutande för att bygga sidan (ex: MUI, ChakraUI, Mantine, etc).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Home**
 
-## React Compiler
+- [ ] Ska ha en övergripande layout med header, main & footer.
+- [ ] Startsidan ska lista samtliga produkter.
+- [ ] Det ska gå att lägga till produkter i kundvagnen (header + toast + ls).
+- [ ] Det ska gå att klicka på en produkt och komma till en detaljsida.
+- [ ] Sidan ska vara responsiv och gå att använda på mobil, tablet & desktop.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Produkt**
 
-## Expanding the Oxlint configuration
+- [ ] Ska ha en övergripande layout med header, main & footer.
+- [ ] Detaljsidan ska visa all info om en produkt.
+- [ ] Det ska gå att lägga till produkten i kundvagnen (header + toast + ls).
+- [ ] Sidan ska vara responsiv och gå att använda på mobil, tablet & desktop.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+**Kundvagn & Checkout**
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+- [ ] Ska ha en övergripande layout med header, main & footer.
+- [ ] Det ska gå att gå till checkoutsidan och se innehållet i kundvagnen (knapp & url).
+- [ ] Det ska gå att se det totala priset i kundvagnen.
+- [ ] Det ska gå att ändra produkterna i kundvagnen (header + vyn + pris + ls).
+- [ ] Det ska gå att ange leveransuppgifter i ett formulär.
+- [ ] Samtliga fält för checkoutsidans formulär ska ha valideringsregler.
+- [ ] Formulären vid utcheckningen ska gå att automatiskt fyllas i.
+- [ ] Bekräftelsesidan ska visa orderdetaljer och leveransuppgifter
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+**Admin**
+
+- [ ] Det finns en admin-sida för produkthantering
+- [ ] Det ska gå att se alla produkter på admin sidan
+- [ ] Det går att lägga till produkter via admin sidan
+- [ ] Det går att ta bort produkter via admin sidan
+- [ ] Det går att redigera produkter via admin sidan
+- [ ] Samtliga fält för adminsidans formulär ska ha valideringsregler
+
+_Gjorda krav ska kryssas för._
