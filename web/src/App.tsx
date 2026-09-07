@@ -1,16 +1,20 @@
+import { useQuery } from "@tanstack/react-query";
+import { getMugs } from "./api/mugs";
 import Header from "./components/header";
 
 export default function App() {
-  const testConnection = async () => {
-    const response = await fetch("/api");
-    const data = await response.json();
-    alert(data);
-  };
+  const query = useQuery({
+    queryKey: ["mugs"],
+    queryFn: getMugs,
+  });
 
   return (
     <>
       <Header></Header>
-      <button onClick={testConnection}>test</button>
+      <button onClick={() => query.refetch()}>test</button>
+      <p>
+        {query.data} - {query.dataUpdatedAt}
+      </p>
     </>
   );
 }
