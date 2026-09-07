@@ -1,11 +1,11 @@
-import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
+import { serve } from '@hono/node-server';
+import { Hono } from 'hono';
+
+import mugs from "./routes/mugs.ts";
 
 const app = new Hono()
 
-app.get('/api', (c) => {
-  return c.json('Hello Hono!')
-})
+app.route("/api/v1/mugs", mugs);
 
 serve({
   fetch: app.fetch,
