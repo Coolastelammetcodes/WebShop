@@ -3,5 +3,5 @@ import "dotenv/config";
 import process from "process";
 import { PrismaClient } from "../src/generated/prisma/client.ts";
 
-const adapter = new PrismaBetterSqlite3({url: process.env.DATABASE_URL!});
-export const db  = new PrismaClient({ adapter });
+const adapter = new PrismaBetterSqlite3({ url: process.env.DATABASE_URL! });
+export const db = new PrismaClient({ adapter });
