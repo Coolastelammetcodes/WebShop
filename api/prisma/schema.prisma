@@ -6,3 +6,11 @@ generator client {
 datasource db {
   provider = "sqlite"
 }
+
+model mugs {
+  id          Int    @id @default(autoincrement())
+  title       String
+  description String
+  price       Int
+  image       String
+}
