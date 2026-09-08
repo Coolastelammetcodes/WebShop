@@ -1,17 +1,17 @@
 import { Hono } from "hono";
+import { db } from "../db.ts";
 
 const mugs = new Hono()
 
-const mugArray: any[] = [];
-
 mugs.get("/", async (c) => {
-    return c.json(mugArray, 200)
+    const mugs = await db.mug.findMany();
+    return c.json(mugs, 200);
 })
 
 mugs.post("/", async (c) => {
     const mug = await c.req.json()
-    mugArray.push(mug);
-    return c.json("thanks", 201);
+   await db.mug.create({data: mug})
+   return c.json("created", 200);
 })
 
 export default mugs;
