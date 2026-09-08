@@ -13,8 +13,8 @@ mugs.get("/", async (c) => {
 
 mugs.post("/", async (c) => {
   const mug = await c.req.json();
-  mugArray.push(mug);
-  return c.json("thanks", 201);
+  const res = await db.mugs.create({ data: mug });
+  return c.json(res, 201);
 });
 
 export default mugs;
