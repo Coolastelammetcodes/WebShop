@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@hono/node-server": "^2.1.1",
+    "@prisma/adapter-better-sqlite3": "^7.10.0",
     "@prisma/client": "^7.10.0",
+    "better-sqlite3": "^13.0.3",
     "dotenv": "^17.4.2",
     "hono": "^4.13.7",
     "prisma": "^7.10.0"
