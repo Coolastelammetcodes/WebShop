@@ -8,13 +8,18 @@ export default function App() {
     queryFn: getMugs,
   });
 
+  console.log(query);
+
   return (
     <>
       <Header></Header>
       <button onClick={() => query.refetch()}>test</button>
       <div>
         {query.data?.map((mug: any, index: any) => (
-          <p key={index}>{mug.name}</p>
+          <div key={index}>
+            <p>{mug.name}</p>
+            <img src={mug.filepath} alt="" />
+          </div>
         ))}
       </div>
     </>
