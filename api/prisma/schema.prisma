@@ -8,6 +8,9 @@ datasource db {
 }
 
 model Mug {
-  id   Int    @id @default(autoincrement())
-  name String
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String @default("")
+  filepath    String @default("")
+  price       Float  @default(0)
 }
