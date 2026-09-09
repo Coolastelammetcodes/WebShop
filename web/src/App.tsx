@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getMugs } from "./api/mugs";
 import Header from "./components/header";
+import ProductCard from "./components/product-card";
 
 export default function App() {
   const query = useQuery({
@@ -11,12 +12,12 @@ export default function App() {
   return (
     <>
       <Header></Header>
-      <button onClick={() => query.refetch()}>test</button>
       <div>
-        {query.data?.map((mug: any, index: any) => (
-          <p key={index}>{mug.name}</p>
+        {query.data?.map((mug) => (
+          <ProductCard key={mug.id} mug={mug}/>
         ))}
       </div>
+      <button onClick={() => query.refetch()}>test</button>
     </>
   );
 }

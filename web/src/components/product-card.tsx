@@ -3,8 +3,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
+import type { Mug } from '../types/mug';
 
-export default function ProductCard() {
+type ProductCardProps = {
+  mug: Mug;
+}
+
+export default function ProductCard({ mug }: ProductCardProps) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -12,11 +17,11 @@ export default function ProductCard() {
           component="img"
           height="140"
           image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          alt={`bild på ${mug.name}`}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            {mug.name}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
             Lizards are a widespread group of squamate reptiles, with over 6,000
