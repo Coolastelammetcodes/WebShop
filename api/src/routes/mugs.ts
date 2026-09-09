@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { db } from "../db.ts";
+import { db } from "../data/db.ts";
 
 const mugs = new Hono()
 
