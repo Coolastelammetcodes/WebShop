@@ -13,12 +13,19 @@
     "@prisma/client": "^7.10.0",
     "better-sqlite3": "^13.0.3",
     "dotenv": "^17.4.2",
-    "hono": "^4.13.7",
-    "prisma": "^7.10.0"
+    "hono": "^4.13.7"
   },
   "devDependencies": {
-    "@types/node": "^26.1.1",
-    "tsx": "^4.23.0",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.5.0",
+    "prisma": "^7.10.0",
+    "tsx": "^4.23.13",
     "typescript": "^7.0.2"
+  },
+  "allowScripts": {
+    "@prisma/engines@7.10.0": true,
+    "better-sqlite3@12.11.1": true,
+    "esbuild@0.28.2": true,
+    "prisma@7.10.0": true
   }
 }

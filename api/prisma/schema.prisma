@@ -1,16 +1,16 @@
 generator client {
   provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  output   = "../src/data/generated/prisma"
 }
 
 datasource db {
   provider = "sqlite"
 }
 
-model mugs {
+model Mug {
   id          Int    @id @default(autoincrement())
-  title       String
-  description String
-  price       Int
-  image       String
+  name        String
+  description String @default("")
+  filepath    String @default("")
+  price       Float  @default(0)
 }
