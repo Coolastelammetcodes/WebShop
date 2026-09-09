@@ -5,8 +5,8 @@ export async function seedIfEmpty() {
   if (count === 0) {
     await db.mug.createMany({
       data: [
-        { name: "Coffeemug" },
-        { name: "Teacup" },
+        { name: "Mug", description: "A Yellow Mug", filepath: "./assets/yellow_mug.jpg", price: 100 },
+         { name: "Mug", description: "A Black Mug", filepath: "./assets/black_mug.jpg", price: 100 },
       ],
     });
     console.log("...database has been seeded");

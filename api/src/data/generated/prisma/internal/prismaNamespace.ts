@@ -529,7 +529,10 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const MugScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  name: 'name',
+  description: 'description',
+  filepath: 'filepath',
+  price: 'price'
 } as const
 
 export type MugScalarFieldEnum = (typeof MugScalarFieldEnum)[keyof typeof MugScalarFieldEnum]
