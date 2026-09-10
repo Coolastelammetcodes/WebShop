@@ -7,7 +7,7 @@ export default function footer() {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/shopping-cart ">Shopping Cart</Link>
-        <Link to="/Admin">Admin</Link>
+        <Link to="/dashboard">Admin</Link>
       </nav>
 
       <p>Contact us</p>
