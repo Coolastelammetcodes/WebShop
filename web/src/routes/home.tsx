@@ -9,14 +9,6 @@ export function Home() {
 
   return (
     <>
-      {/* placeholder länkar för routing, detta kanske ska ligga i header?? */}
-      <a href="/admin" style={{ marginRight: "12px" }}>
-        go to admin page
-      </a>
-      <a href="/shopping-cart" style={{ marginRight: "12px" }}>
-        go to shopping-cart
-      </a>
-
       <button onClick={() => query.refetch()}>test</button>
 
       <div>

@@ -7,9 +7,9 @@ import { ShoppingCart } from "./routes/shopping-cart";
 export default function App() {
   return (
     <>
-      <Header></Header>
-
       <BrowserRouter>
+        <Header></Header>
+
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/admin" element={<Admin />}></Route>
