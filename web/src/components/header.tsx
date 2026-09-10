@@ -20,7 +20,7 @@ const pages = [
 ];
 
 const settings = [
-  { label: "Dashboard", path: "/admin" },
+  { label: "Dashboard", path: "/dashboard" },
   { label: "Logout", path: "/logout" },
 ];
 
