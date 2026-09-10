@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router";
+import Footer from "./components/footer";
 import Header from "./components/header";
 import { Admin } from "./routes/admin";
 import { Home } from "./routes/home";
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/admin" element={<Admin />}></Route>
           <Route path="/shopping-cart" element={<ShoppingCart />}></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
