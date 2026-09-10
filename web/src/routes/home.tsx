@@ -9,8 +9,6 @@ export function Home() {
 
   return (
     <>
-      <button onClick={() => query.refetch()}>test</button>
-
       <div>
         {query.data?.map((mug: any, index: any) => (
           <div key={index}>
