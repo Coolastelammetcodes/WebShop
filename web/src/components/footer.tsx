@@ -29,12 +29,13 @@ export default function Footer() {
         <Typography
           variant="body2"
           sx={{
-            fontWeight: 600,
-            letterSpacing: "0.5px",
-            fontFamily: "Georgia, serif",
+            fontFamily: "Arial, sans-serif",
+            fontWeight: 700,
+            fontSize: "1.2rem",
+            letterSpacing: "1px",
           }}
         >
-          © 2026 WebShop
+          WebShop
         </Typography>
 
         <Box
@@ -45,21 +46,24 @@ export default function Footer() {
             marginLeft: "auto",
           }}
         >
-          <Link to="/" style={{ color: "#333" }}>
+          <Link to="/" style={{ color: "#333", textDecoration: "none" }}>
             Home
           </Link>
 
-          <Link to="/shopping-cart" style={{ color: "#333" }}>
+          <Link
+            to="/shopping-cart"
+            style={{ color: "#333", textDecoration: "none" }}
+          >
             Shopping Cart
           </Link>
 
-          <Link to="/admin" style={{ color: "#333" }}>
+          <Link to="/admin" style={{ color: "#333", textDecoration: "none" }}>
             Admin
           </Link>
         </Box>
       </Box>
 
-      <Divider sx={{ backgroundColor: "#555", mb: 3 }} />
+      <Divider sx={{ backgroundColor: "#999", mb: 3 }} />
       <Box
         sx={{
           display: "flex",
@@ -71,13 +75,39 @@ export default function Footer() {
           <Typography variant="body2">Stay Updated</Typography>
 
           <Box sx={{ display: "flex", gap: 1, mt: 1, mr: 2 }}>
-            <input placeholder="Your Email" />
+            <input
+              placeholder="Your Email"
+              style={{
+                padding: "10px 14px",
+                borderRadius: "20px",
+                border: "1px solid #ccc",
+              }}
+            ></input>
 
-            <Button variant="contained">Subscribe</Button>
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "#222",
+                borderRadius: "20px",
+                "&:hover": {
+                  backgroundColor: "#000",
+                },
+              }}
+            >
+              Subscribe
+            </Button>
           </Box>
         </Box>
 
-        <Typography variant="body2">Contact us</Typography>
+        <Typography
+          variant="body2"
+          sx={{
+            marginRight: 4,
+            fontWeight: 500,
+          }}
+        >
+          Contact us
+        </Typography>
       </Box>
     </Paper>
   );
