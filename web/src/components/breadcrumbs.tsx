@@ -1,12 +1,15 @@
 import MuiBreadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 
-export default function Breadcrumbs() {
+interface BreadcrumbsProps {
+  currentPage: string;
+}
+
+export default function Breadcrumbs({ currentPage }: BreadcrumbsProps) {
   return (
     <MuiBreadcrumbs>
       <Link href="/">Home</Link>
-      <Link href="/admin">Admin</Link>
-      <Link href="/shopping-cart">Shopping Cart</Link>
+      <span>{currentPage}</span>
     </MuiBreadcrumbs>
   );
 }
