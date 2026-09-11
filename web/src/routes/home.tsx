@@ -31,7 +31,19 @@ export function Home() {
           Find your perfect mug for every moment.
         </Typography>
 
-        <Button variant="contained">Shop Now</Button>
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: "#000",
+            borderRadius: "20px",
+            px: 4,
+            "&:hover": {
+              backgroundColor: "#333",
+            },
+          }}
+        >
+          Shop Now
+        </Button>
       </Box>
 
       <div>
