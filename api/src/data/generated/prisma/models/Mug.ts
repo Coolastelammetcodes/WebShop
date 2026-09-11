@@ -28,50 +28,72 @@ export type AggregateMug = {
 
 export type MugAvgAggregateOutputType = {
   id: number | null
+  price: number | null
 }
 
 export type MugSumAggregateOutputType = {
   id: number | null
+  price: number | null
 }
 
 export type MugMinAggregateOutputType = {
   id: number | null
   name: string | null
+  description: string | null
+  filepath: string | null
+  price: number | null
 }
 
 export type MugMaxAggregateOutputType = {
   id: number | null
   name: string | null
+  description: string | null
+  filepath: string | null
+  price: number | null
 }
 
 export type MugCountAggregateOutputType = {
   id: number
   name: number
+  description: number
+  filepath: number
+  price: number
   _all: number
 }
 
 
 export type MugAvgAggregateInputType = {
   id?: true
+  price?: true
 }
 
 export type MugSumAggregateInputType = {
   id?: true
+  price?: true
 }
 
 export type MugMinAggregateInputType = {
   id?: true
   name?: true
+  description?: true
+  filepath?: true
+  price?: true
 }
 
 export type MugMaxAggregateInputType = {
   id?: true
   name?: true
+  description?: true
+  filepath?: true
+  price?: true
 }
 
 export type MugCountAggregateInputType = {
   id?: true
   name?: true
+  description?: true
+  filepath?: true
+  price?: true
   _all?: true
 }
 
@@ -164,6 +186,9 @@ export type MugGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
 export type MugGroupByOutputType = {
   id: number
   name: string
+  description: string
+  filepath: string
+  price: number
   _count: MugCountAggregateOutputType | null
   _avg: MugAvgAggregateOutputType | null
   _sum: MugSumAggregateOutputType | null
@@ -192,11 +217,17 @@ export type MugWhereInput = {
   NOT?: Prisma.MugWhereInput | Prisma.MugWhereInput[]
   id?: Prisma.IntFilter<"Mug"> | number
   name?: Prisma.StringFilter<"Mug"> | string
+  description?: Prisma.StringFilter<"Mug"> | string
+  filepath?: Prisma.StringFilter<"Mug"> | string
+  price?: Prisma.FloatFilter<"Mug"> | number
 }
 
 export type MugOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  filepath?: Prisma.SortOrder
+  price?: Prisma.SortOrder
 }
 
 export type MugWhereUniqueInput = Prisma.AtLeast<{
@@ -205,11 +236,17 @@ export type MugWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.MugWhereInput[]
   NOT?: Prisma.MugWhereInput | Prisma.MugWhereInput[]
   name?: Prisma.StringFilter<"Mug"> | string
+  description?: Prisma.StringFilter<"Mug"> | string
+  filepath?: Prisma.StringFilter<"Mug"> | string
+  price?: Prisma.FloatFilter<"Mug"> | number
 }, "id">
 
 export type MugOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  filepath?: Prisma.SortOrder
+  price?: Prisma.SortOrder
   _count?: Prisma.MugCountOrderByAggregateInput
   _avg?: Prisma.MugAvgOrderByAggregateInput
   _max?: Prisma.MugMaxOrderByAggregateInput
@@ -223,65 +260,108 @@ export type MugScalarWhereWithAggregatesInput = {
   NOT?: Prisma.MugScalarWhereWithAggregatesInput | Prisma.MugScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Mug"> | number
   name?: Prisma.StringWithAggregatesFilter<"Mug"> | string
+  description?: Prisma.StringWithAggregatesFilter<"Mug"> | string
+  filepath?: Prisma.StringWithAggregatesFilter<"Mug"> | string
+  price?: Prisma.FloatWithAggregatesFilter<"Mug"> | number
 }
 
 export type MugCreateInput = {
   name: string
+  description?: string
+  filepath?: string
+  price?: number
 }
 
 export type MugUncheckedCreateInput = {
   id?: number
   name: string
+  description?: string
+  filepath?: string
+  price?: number
 }
 
 export type MugUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  filepath?: Prisma.StringFieldUpdateOperationsInput | string
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
 }
 
 export type MugUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  filepath?: Prisma.StringFieldUpdateOperationsInput | string
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
 }
 
 export type MugCreateManyInput = {
   id?: number
   name: string
+  description?: string
+  filepath?: string
+  price?: number
 }
 
 export type MugUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  filepath?: Prisma.StringFieldUpdateOperationsInput | string
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
 }
 
 export type MugUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  filepath?: Prisma.StringFieldUpdateOperationsInput | string
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
 }
 
 export type MugCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  filepath?: Prisma.SortOrder
+  price?: Prisma.SortOrder
 }
 
 export type MugAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  price?: Prisma.SortOrder
 }
 
 export type MugMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  filepath?: Prisma.SortOrder
+  price?: Prisma.SortOrder
 }
 
 export type MugMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  filepath?: Prisma.SortOrder
+  price?: Prisma.SortOrder
 }
 
 export type MugSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  price?: Prisma.SortOrder
 }
 
 export type StringFieldUpdateOperationsInput = {
   set?: string
+}
+
+export type FloatFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type IntFieldUpdateOperationsInput = {
@@ -297,24 +377,36 @@ export type IntFieldUpdateOperationsInput = {
 export type MugSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  description?: boolean
+  filepath?: boolean
+  price?: boolean
 }, ExtArgs["result"]["mug"]>
 
 export type MugSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  description?: boolean
+  filepath?: boolean
+  price?: boolean
 }, ExtArgs["result"]["mug"]>
 
 export type MugSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  description?: boolean
+  filepath?: boolean
+  price?: boolean
 }, ExtArgs["result"]["mug"]>
 
 export type MugSelectScalar = {
   id?: boolean
   name?: boolean
+  description?: boolean
+  filepath?: boolean
+  price?: boolean
 }
 
-export type MugOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name", ExtArgs["result"]["mug"]>
+export type MugOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "filepath" | "price", ExtArgs["result"]["mug"]>
 
 export type $MugPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Mug"
@@ -322,6 +414,9 @@ export type $MugPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     name: string
+    description: string
+    filepath: string
+    price: number
   }, ExtArgs["result"]["mug"]>
   composites: {}
 }
@@ -747,6 +842,9 @@ export interface Prisma__MugClient<T, Null = never, ExtArgs extends runtime.Type
 export interface MugFieldRefs {
   readonly id: Prisma.FieldRef<"Mug", 'Int'>
   readonly name: Prisma.FieldRef<"Mug", 'String'>
+  readonly description: Prisma.FieldRef<"Mug", 'String'>
+  readonly filepath: Prisma.FieldRef<"Mug", 'String'>
+  readonly price: Prisma.FieldRef<"Mug", 'Float'>
 }
     
 
