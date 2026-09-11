@@ -1,18 +1,27 @@
-import { useQuery } from "@tanstack/react-query";
-import { getMugs } from "../../api/mugs";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { deleteMug, getMugs } from "../../api/mugs";
 
 export function DisplayProducts() {
-  const query = useQuery({
+  const fetchQuery = useQuery({
     queryKey: ["mugs"],
     queryFn: getMugs,
+  });
+
+  const queryClient = useQueryClient();
+
+  const deleteQuery = useMutation({
+    mutationFn: deleteMug,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["mugs"] });
+    },
   });
 
   return (
     <>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {query.data?.map((mug: any, index: any) => (
+        {fetchQuery.data?.map((mug: any) => (
           <div
-            key={index}
+            key={mug.id}
             style={{
               display: "flex",
               flexDirection: "column",
@@ -50,8 +59,8 @@ export function DisplayProducts() {
               <button onClick={() => console.log("nothing here yet..")}>
                 edit
               </button>
-              <button onClick={() => console.log("nothing here yet..")}>
-                remove
+              <button onClick={() => deleteQuery.mutate(mug.id)}>
+                {deleteQuery.isPending ? "deleting" : "delete"}
               </button>
             </div>
           </div>
