@@ -1,8 +1,13 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { getMugs } from "../api/mugs";
+import type { Mug } from "./dashboard/mugSchema";
 
-export function Home() {
+interface HomeProps {
+  addToCart: (mug: Mug) => void;
+}
+
+export function Home({ addToCart }: HomeProps) {
   const query = useQuery({
     queryKey: ["mugs"],
     queryFn: getMugs,
@@ -62,6 +67,7 @@ export function Home() {
           <div key={index}>
             <p>{mug.name}</p>
             <img src={mug.filepath} alt="" />
+            <Button onClick={() => addToCart(mug)}>Add to cart</Button>
           </div>
         ))}
       </div>
