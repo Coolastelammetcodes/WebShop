@@ -48,7 +48,7 @@ export default function Header() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "hsl(19, 34%, 25%)" }}>
+    <AppBar position="static" sx={{ backgroundColor: "#D6CEC2" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <CoffeeIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -63,7 +63,7 @@ export default function Header() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "#333333",
               textDecoration: "none",
             }}
           >
@@ -124,7 +124,7 @@ export default function Header() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "#333333",
               textDecoration: "none",
             }}
           >
@@ -137,7 +137,7 @@ export default function Header() {
                 component={Link}
                 to={page.path}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "#333333", display: "block" }}
               >
                 {page.label}
               </Button>

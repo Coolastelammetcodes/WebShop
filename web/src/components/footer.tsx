@@ -15,7 +15,7 @@ export default function Footer() {
         mt: 4,
         px: 2,
         py: 2,
-        backgroundColor: "#f0f0f0",
+        backgroundColor: "#D6CEC2",
         color: "black",
       }}
     >
