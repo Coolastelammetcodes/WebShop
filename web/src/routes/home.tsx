@@ -17,6 +17,16 @@ export function Home() {
             "linear-gradient(rgba(210,202,190,0.18),rgba(210,202,190,0.18)),url('/hero-mugs.jpeg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          animation: "zoom 8s ease-in-out infinite alternate",
+
+          "@keyframes zoom": {
+            from: {
+              backgroundSize: "100%",
+            },
+            to: {
+              backgroundSize: "110%",
+            },
+          },
           display: "flex",
           alignItems: "center",
           padding: 4,
