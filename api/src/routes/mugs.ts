@@ -15,4 +15,17 @@ mugs.post("/", async (c) => {
   return c.json(res, 201);
 });
 
+mugs.delete("/:id", async (c) => {
+  const id = c.req.param("id");
+
+  try {
+    const res = await db.mug.delete({
+      where: { id: Number(id) }, // ta bort Number() om id är en sträng i schemat
+    });
+    return c.json(res, 200);
+  } catch (error) {
+    return c.json({ error: "Mug not found" }, 404);
+  }
+});
+
 export default mugs;
