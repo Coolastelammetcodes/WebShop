@@ -1,9 +1,9 @@
 export interface mugs {
   id: number;
-  title: String;
-  description: String;
+  title: string;
+  description: string;
   price: number;
-  image: String;
+  image: string;
 }
 
 export const mockedPosts: mugs[] = [

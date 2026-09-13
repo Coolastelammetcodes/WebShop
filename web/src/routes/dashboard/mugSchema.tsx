@@ -1,6 +1,8 @@
 import z from "zod";
+import { id } from "zod/v4/locales";
 
 export const Mug = z.object({
+  id: z.number(),
   name: z
     .string()
     .min(2, { error: "name cannot be less than 2 characters.." })
