@@ -220,6 +220,7 @@ export type MugWhereInput = {
   description?: Prisma.StringFilter<"Mug"> | string
   filepath?: Prisma.StringFilter<"Mug"> | string
   price?: Prisma.FloatFilter<"Mug"> | number
+  cartItems?: Prisma.CartItemListRelationFilter
 }
 
 export type MugOrderByWithRelationInput = {
@@ -228,6 +229,7 @@ export type MugOrderByWithRelationInput = {
   description?: Prisma.SortOrder
   filepath?: Prisma.SortOrder
   price?: Prisma.SortOrder
+  cartItems?: Prisma.CartItemOrderByRelationAggregateInput
 }
 
 export type MugWhereUniqueInput = Prisma.AtLeast<{
@@ -239,6 +241,7 @@ export type MugWhereUniqueInput = Prisma.AtLeast<{
   description?: Prisma.StringFilter<"Mug"> | string
   filepath?: Prisma.StringFilter<"Mug"> | string
   price?: Prisma.FloatFilter<"Mug"> | number
+  cartItems?: Prisma.CartItemListRelationFilter
 }, "id">
 
 export type MugOrderByWithAggregationInput = {
@@ -270,6 +273,7 @@ export type MugCreateInput = {
   description?: string
   filepath?: string
   price?: number
+  cartItems?: Prisma.CartItemCreateNestedManyWithoutMugInput
 }
 
 export type MugUncheckedCreateInput = {
@@ -278,6 +282,7 @@ export type MugUncheckedCreateInput = {
   description?: string
   filepath?: string
   price?: number
+  cartItems?: Prisma.CartItemUncheckedCreateNestedManyWithoutMugInput
 }
 
 export type MugUpdateInput = {
@@ -285,6 +290,7 @@ export type MugUpdateInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   filepath?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.FloatFieldUpdateOperationsInput | number
+  cartItems?: Prisma.CartItemUpdateManyWithoutMugNestedInput
 }
 
 export type MugUncheckedUpdateInput = {
@@ -293,6 +299,7 @@ export type MugUncheckedUpdateInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   filepath?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.FloatFieldUpdateOperationsInput | number
+  cartItems?: Prisma.CartItemUncheckedUpdateManyWithoutMugNestedInput
 }
 
 export type MugCreateManyInput = {
@@ -352,6 +359,11 @@ export type MugSumOrderByAggregateInput = {
   price?: Prisma.SortOrder
 }
 
+export type MugScalarRelationFilter = {
+  is?: Prisma.MugWhereInput
+  isNot?: Prisma.MugWhereInput
+}
+
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
@@ -372,6 +384,95 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type MugCreateNestedOneWithoutCartItemsInput = {
+  create?: Prisma.XOR<Prisma.MugCreateWithoutCartItemsInput, Prisma.MugUncheckedCreateWithoutCartItemsInput>
+  connectOrCreate?: Prisma.MugCreateOrConnectWithoutCartItemsInput
+  connect?: Prisma.MugWhereUniqueInput
+}
+
+export type MugUpdateOneRequiredWithoutCartItemsNestedInput = {
+  create?: Prisma.XOR<Prisma.MugCreateWithoutCartItemsInput, Prisma.MugUncheckedCreateWithoutCartItemsInput>
+  connectOrCreate?: Prisma.MugCreateOrConnectWithoutCartItemsInput
+  upsert?: Prisma.MugUpsertWithoutCartItemsInput
+  connect?: Prisma.MugWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MugUpdateToOneWithWhereWithoutCartItemsInput, Prisma.MugUpdateWithoutCartItemsInput>, Prisma.MugUncheckedUpdateWithoutCartItemsInput>
+}
+
+export type MugCreateWithoutCartItemsInput = {
+  name: string
+  description?: string
+  filepath?: string
+  price?: number
+}
+
+export type MugUncheckedCreateWithoutCartItemsInput = {
+  id?: number
+  name: string
+  description?: string
+  filepath?: string
+  price?: number
+}
+
+export type MugCreateOrConnectWithoutCartItemsInput = {
+  where: Prisma.MugWhereUniqueInput
+  create: Prisma.XOR<Prisma.MugCreateWithoutCartItemsInput, Prisma.MugUncheckedCreateWithoutCartItemsInput>
+}
+
+export type MugUpsertWithoutCartItemsInput = {
+  update: Prisma.XOR<Prisma.MugUpdateWithoutCartItemsInput, Prisma.MugUncheckedUpdateWithoutCartItemsInput>
+  create: Prisma.XOR<Prisma.MugCreateWithoutCartItemsInput, Prisma.MugUncheckedCreateWithoutCartItemsInput>
+  where?: Prisma.MugWhereInput
+}
+
+export type MugUpdateToOneWithWhereWithoutCartItemsInput = {
+  where?: Prisma.MugWhereInput
+  data: Prisma.XOR<Prisma.MugUpdateWithoutCartItemsInput, Prisma.MugUncheckedUpdateWithoutCartItemsInput>
+}
+
+export type MugUpdateWithoutCartItemsInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  filepath?: Prisma.StringFieldUpdateOperationsInput | string
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
+}
+
+export type MugUncheckedUpdateWithoutCartItemsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  filepath?: Prisma.StringFieldUpdateOperationsInput | string
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
+}
+
+
+/**
+ * Count Type MugCountOutputType
+ */
+
+export type MugCountOutputType = {
+  cartItems: number
+}
+
+export type MugCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  cartItems?: boolean | MugCountOutputTypeCountCartItemsArgs
+}
+
+/**
+ * MugCountOutputType without action
+ */
+export type MugCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MugCountOutputType
+   */
+  select?: Prisma.MugCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * MugCountOutputType without action
+ */
+export type MugCountOutputTypeCountCartItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CartItemWhereInput
+}
 
 
 export type MugSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -380,6 +481,8 @@ export type MugSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = ru
   description?: boolean
   filepath?: boolean
   price?: boolean
+  cartItems?: boolean | Prisma.Mug$cartItemsArgs<ExtArgs>
+  _count?: boolean | Prisma.MugCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["mug"]>
 
 export type MugSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -407,10 +510,18 @@ export type MugSelectScalar = {
 }
 
 export type MugOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "filepath" | "price", ExtArgs["result"]["mug"]>
+export type MugInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  cartItems?: boolean | Prisma.Mug$cartItemsArgs<ExtArgs>
+  _count?: boolean | Prisma.MugCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type MugIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type MugIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $MugPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Mug"
-  objects: {}
+  objects: {
+    cartItems: Prisma.$CartItemPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     name: string
@@ -811,6 +922,7 @@ readonly fields: MugFieldRefs;
  */
 export interface Prisma__MugClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  cartItems<T extends Prisma.Mug$cartItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Mug$cartItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CartItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -862,6 +974,10 @@ export type MugFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.MugOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MugInclude<ExtArgs> | null
+  /**
    * Filter, which Mug to fetch.
    */
   where: Prisma.MugWhereUniqueInput
@@ -880,6 +996,10 @@ export type MugFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.In
    */
   omit?: Prisma.MugOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MugInclude<ExtArgs> | null
+  /**
    * Filter, which Mug to fetch.
    */
   where: Prisma.MugWhereUniqueInput
@@ -897,6 +1017,10 @@ export type MugFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    * Omit specific fields from the Mug
    */
   omit?: Prisma.MugOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MugInclude<ExtArgs> | null
   /**
    * Filter, which Mug to fetch.
    */
@@ -946,6 +1070,10 @@ export type MugFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.Int
    */
   omit?: Prisma.MugOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MugInclude<ExtArgs> | null
+  /**
    * Filter, which Mug to fetch.
    */
   where?: Prisma.MugWhereInput
@@ -993,6 +1121,10 @@ export type MugFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    * Omit specific fields from the Mug
    */
   omit?: Prisma.MugOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MugInclude<ExtArgs> | null
   /**
    * Filter, which Mugs to fetch.
    */
@@ -1042,6 +1174,10 @@ export type MugCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs 
    */
   omit?: Prisma.MugOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MugInclude<ExtArgs> | null
+  /**
    * The data needed to create a Mug.
    */
   data: Prisma.XOR<Prisma.MugCreateInput, Prisma.MugUncheckedCreateInput>
@@ -1087,6 +1223,10 @@ export type MugUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs 
    * Omit specific fields from the Mug
    */
   omit?: Prisma.MugOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MugInclude<ExtArgs> | null
   /**
    * The data needed to update a Mug.
    */
@@ -1154,6 +1294,10 @@ export type MugUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs 
    */
   omit?: Prisma.MugOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MugInclude<ExtArgs> | null
+  /**
    * The filter to search for the Mug to update in case it exists.
    */
   where: Prisma.MugWhereUniqueInput
@@ -1180,6 +1324,10 @@ export type MugDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs 
    */
   omit?: Prisma.MugOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MugInclude<ExtArgs> | null
+  /**
    * Filter which Mug to delete.
    */
   where: Prisma.MugWhereUniqueInput
@@ -1200,6 +1348,30 @@ export type MugDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 }
 
 /**
+ * Mug.cartItems
+ */
+export type Mug$cartItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CartItem
+   */
+  select?: Prisma.CartItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CartItem
+   */
+  omit?: Prisma.CartItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CartItemInclude<ExtArgs> | null
+  where?: Prisma.CartItemWhereInput
+  orderBy?: Prisma.CartItemOrderByWithRelationInput | Prisma.CartItemOrderByWithRelationInput[]
+  cursor?: Prisma.CartItemWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CartItemScalarFieldEnum | Prisma.CartItemScalarFieldEnum[]
+}
+
+/**
  * Mug without action
  */
 export type MugDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1211,4 +1383,8 @@ export type MugDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    * Omit specific fields from the Mug
    */
   omit?: Prisma.MugOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MugInclude<ExtArgs> | null
 }
