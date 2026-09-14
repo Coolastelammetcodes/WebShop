@@ -5,12 +5,17 @@ export function ShoppingCart({ cart }: { cart: Mug[] }) {
   return (
     <>
       <Breadcrumbs currentPage="Shopping Cart" />
-      <h1>Shopping Cart Page</h1>
+      <h1>Shopping Cart</h1>
+
       {cart.map((mug) => (
         <div key={mug.name}>
-          <p>{mug.name}</p>
+          <img src={mug.filepath} alt={mug.name} width="150" />
+
+          <h2>{mug.name}</h2>
+
           <p>{mug.description}</p>
-          <p>{mug.price}</p>
+
+          <p>{mug.price} kr</p>
         </div>
       ))}
     </>
