@@ -1,5 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useSetAtom } from "jotai";
 import { deleteMug, getMugs } from "../../api/mugs";
+import { editMugDialogOpenAtom, selectedMugAtom } from "../../atoms/dialog";
+import type { Mug } from "./mugSchema";
+
+type MugWithId = Mug & { id: number };
 
 export function DisplayProducts() {
   const fetchQuery = useQuery({
@@ -8,6 +13,13 @@ export function DisplayProducts() {
   });
 
   const queryClient = useQueryClient();
+  const setSelectedMug = useSetAtom(selectedMugAtom);
+  const setEditDialogOpen = useSetAtom(editMugDialogOpenAtom);
+
+  const handleEdit = (mug: MugWithId) => {
+    setSelectedMug(mug);
+    setEditDialogOpen(true);
+  };
 
   const deleteQuery = useMutation({
     mutationFn: deleteMug,
@@ -56,9 +68,7 @@ export function DisplayProducts() {
                 justifyContent: "flex-end",
               }}
             >
-              <button onClick={() => console.log("nothing here yet..")}>
-                edit
-              </button>
+              <button onClick={() => handleEdit(mug)}>edit</button>
               <button onClick={() => deleteQuery.mutate(mug.id)}>
                 {deleteQuery.isPending ? "deleting" : "delete"}
               </button>

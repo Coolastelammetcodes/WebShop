@@ -15,6 +15,21 @@ mugs.post("/", async (c) => {
   return c.json(res, 201);
 });
 
+mugs.put("/:id", async (c) => {
+  const id = c.req.param("id");
+  const mug = await c.req.json();
+
+  try {
+    const res = await db.mug.update({
+      where: { id: Number(id) },
+      data: mug,
+    });
+    return c.json(res, 200);
+  } catch (error) {
+    return c.json({ error: "Mug not found" }, 404);
+  }
+});
+
 mugs.delete("/:id", async (c) => {
   const id = c.req.param("id");
 
