@@ -9,4 +9,6 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/Mug.ts'
+export type * from './models/Cart.ts'
+export type * from './models/CartItem.ts'
 export type * from './commonInputTypes.ts'

@@ -6,12 +6,16 @@ import { Hono } from 'hono';
 import { seedIfEmpty } from './data/seed.ts';
 
 // routes
+import cartItems from "./routes/cartItems.ts";
+import carts from "./routes/carts.ts";
 import mugs from "./routes/mugs.ts";
 
 const app = new Hono()
 app.use("/assets/*", serveStatic({ root: "./src"}))
 
 app.route("/api/v1/mugs", mugs);
+app.route("/api/v1/carts", carts)
+app.route("/api/v1/cart-items", cartItems);
 
 await seedIfEmpty();
 

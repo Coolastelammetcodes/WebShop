@@ -8,9 +8,29 @@ datasource db {
 }
 
 model Mug {
-  id          Int    @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
   name        String
-  description String @default("")
-  filepath    String @default("")
-  price       Float  @default(0)
+  description String     @default("")
+  filepath    String     @default("")
+  price       Float      @default(0)
+  cartItems   CartItem[]
+}
+
+model Cart {
+  id Int @id @default(autoincrement())
+
+  items CartItem[]
+}
+
+model CartItem {
+  id       Int @id @default(autoincrement())
+  quantity Int @default(1)
+
+  cart   Cart @relation(fields: [cartId], references: [id])
+  cartId Int
+
+  mug   Mug @relation(fields: [mugId], references: [id])
+  mugId Int
+
+  @@unique([cartId, mugId])
 }
