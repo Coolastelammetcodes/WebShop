@@ -11,3 +11,19 @@ content-type: application/json
   "price": 15,
   "image": "https://example.com/brown-mug.jpg"
 }
+
+###
+GET http://localhost:3000/api/v1/carts HTTP/1.1
+
+###
+POST http://localhost:3000/api/v1/carts HTTP/1.1
+
+###
+POST http://localhost:3000/api/v1/cart-items HTTP/1.1
+content-type: application/json
+
+{
+  "quantity": 2,
+  "cartId": 1,
+  "mugId": 3
+}
