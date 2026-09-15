@@ -46,6 +46,9 @@ export default function App() {
         .filter((item) => item.quantity > 0),
     );
   }
+  function removeFromCart(name: string) {
+    setCart((currentCart) => currentCart.filter((item) => item.name !== name));
+  }
 
   return (
     <>
@@ -62,6 +65,7 @@ export default function App() {
                 cart={cart}
                 increaseQuantity={increaseQuantity}
                 decreaseQuantity={decreaseQuantity}
+                removeFromCart={removeFromCart}
               />
             }
           />

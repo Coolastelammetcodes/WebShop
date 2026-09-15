@@ -9,10 +9,12 @@ export function ShoppingCart({
   cart,
   increaseQuantity,
   decreaseQuantity,
+  removeFromCart,
 }: {
   cart: CartItem[];
   increaseQuantity: (name: string) => void;
   decreaseQuantity: (name: string) => void;
+  removeFromCart: (name: string) => void;
 }) {
   return (
     <>
@@ -34,6 +36,7 @@ export function ShoppingCart({
           <span> {mug.quantity} </span>
 
           <button onClick={() => increaseQuantity(mug.name)}>+</button>
+          <button onClick={() => removeFromCart(mug.name)}>Remove</button>
         </div>
       ))}
     </>
