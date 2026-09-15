@@ -2,14 +2,14 @@ En Webbshop som säljer muggar
 
 ## Krav för Godkänt
 
-- [ ] Git & GitHub har använts
-- [ ] Projektmappen innehåller en README.md fil - (läs ovan för mer info)
+- [x] Git & GitHub har använts
+- [x] Projektmappen innehåller en README.md fil - (läs ovan för mer info)
 - [ ] Uppgiften lämnas in i tid!
-- [ ] Ett designsystem/komponentbibliotek används nästintill helt uteslutande för att bygga sidan (ex: MUI, ChakraUI, Mantine, etc).
+- [x] Ett designsystem/komponentbibliotek används nästintill helt uteslutande för att bygga sidan (ex: MUI, ChakraUI, Mantine, etc).
 
 **Home**
 
-- [ ] Ska ha en övergripande layout med header, main & footer.
+- [x] Ska ha en övergripande layout med header, main & footer.
 - [ ] Startsidan ska lista samtliga produkter.
 - [ ] Det ska gå att lägga till produkter i kundvagnen (header + toast + ls).
 - [ ] Det ska gå att klicka på en produkt och komma till en detaljsida.
