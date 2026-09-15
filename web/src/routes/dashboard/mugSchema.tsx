@@ -1,6 +1,7 @@
 import z from "zod";
 
 export const Mug = z.object({
+  id: z.number(),
   name: z
     .string()
     .trim()

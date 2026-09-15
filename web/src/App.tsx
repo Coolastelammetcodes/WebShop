@@ -74,6 +74,7 @@ export default function App() {
           <Route path="/checkout" element={<Checkout cart={cart} />} />
           <Route path="/order-summary" element={<OrderSummary />} />
         </Routes>
+        
         <Footer />
       </BrowserRouter>
     </>

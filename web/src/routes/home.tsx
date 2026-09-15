@@ -1,6 +1,7 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { getMugs } from "../api/mugs";
+import ProductCard from "../components/product-card";
 import type { Mug } from "./dashboard/mugSchema";
 
 interface HomeProps {
@@ -62,15 +63,24 @@ export function Home({ addToCart }: HomeProps) {
         </Box>
       </Box>
 
-      <div>
-        {query.data?.map((mug: any, index: any) => (
+      <main>
+        {/* {query.data?.map((mug: any, index: any) => (
           <div key={index}>
             <p>{mug.name}</p>
             <img src={mug.filepath} alt="" />
             <Button onClick={() => addToCart(mug)}>Add to cart</Button>
           </div>
-        ))}
-      </div>
+        ))} */}
+
+        <Grid sx={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
+          {query.data?.map((mug) => (
+            <Box key={mug.id}>
+              <ProductCard key={mug.id} mug={mug} />
+              <Button onClick={() => addToCart(mug)}>Add to cart</Button>
+            </Box>
+          ))}
+        </Grid>
+      </main>
     </>
   );
 }

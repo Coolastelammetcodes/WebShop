@@ -33,11 +33,11 @@ export async function deleteMug(id: number) {
   return;
 }
 
-export async function getMugs() {
+export async function getMugs(): Promise<Mug[]>{
   const response = await fetch("/api/v1/mugs");
 
   if (!response.ok) {
-    return new Error(`failed to fetch mugs: ${response.status}`);
+    throw new Error(`failed to fetch mugs: ${response.status}`);
   }
 
   return response.json();
