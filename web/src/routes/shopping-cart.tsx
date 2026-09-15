@@ -16,6 +16,7 @@ export function ShoppingCart({
   decreaseQuantity: (name: string) => void;
   removeFromCart: (name: string) => void;
 }) {
+  const total = cart.reduce((sum, mug) => sum + mug.price * mug.quantity, 0);
   return (
     <>
       <Breadcrumbs currentPage="Shopping Cart" />
@@ -39,6 +40,7 @@ export function ShoppingCart({
           <button onClick={() => removeFromCart(mug.name)}>Remove</button>
         </div>
       ))}
+      <h2>Total: {total} kr</h2>
     </>
   );
 }
