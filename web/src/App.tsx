@@ -28,6 +28,25 @@ export default function App() {
       return [...currentCart, { ...mug, quantity: 1 }];
     });
   }
+
+  function increaseQuantity(name: string) {
+    setCart((currentCart) =>
+      currentCart.map((item) =>
+        item.name === name ? { ...item, quantity: item.quantity + 1 } : item,
+      ),
+    );
+  }
+
+  function decreaseQuantity(name: string) {
+    setCart((currentCart) =>
+      currentCart
+        .map((item) =>
+          item.name === name ? { ...item, quantity: item.quantity - 1 } : item,
+        )
+        .filter((item) => item.quantity > 0),
+    );
+  }
+
   return (
     <>
       <BrowserRouter>
@@ -38,8 +57,14 @@ export default function App() {
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route
             path="/shopping-cart"
-            element={<ShoppingCart cart={cart} />}
-          ></Route>
+            element={
+              <ShoppingCart
+                cart={cart}
+                increaseQuantity={increaseQuantity}
+                decreaseQuantity={decreaseQuantity}
+              />
+            }
+          />
         </Routes>
         <Footer />
       </BrowserRouter>
