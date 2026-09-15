@@ -1,4 +1,5 @@
 import { Box, Button, Card, CardContent, Typography } from "@mui/material";
+import { useNavigate } from "react-router";
 import Breadcrumbs from "../components/breadcrumbs";
 import type { Mug } from "./dashboard/mugSchema";
 
@@ -17,6 +18,7 @@ export function ShoppingCart({
   decreaseQuantity: (name: string) => void;
   removeFromCart: (name: string) => void;
 }) {
+  const navigate = useNavigate();
   const total = cart.reduce((sum, mug) => sum + mug.price * mug.quantity, 0);
   return (
     <>
@@ -78,6 +80,9 @@ export function ShoppingCart({
         <Typography variant="h5" sx={{ marginTop: "30px" }}>
           Total: {total} kr
         </Typography>
+        <Button variant="contained" onClick={() => navigate("/checkout")}>
+          Checkout
+        </Button>
       </Box>
     </>
   );
