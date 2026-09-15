@@ -15,40 +15,59 @@ export default function ProductCard({ mug, addToCart }: ProductCardProps) {
     <Card
       sx={{
         width: 280,
+        height: 580,
         borderRadius: "8px",
         boxShadow: 2,
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <CardMedia
         component="img"
-        height="320"
         image={mug.filepath}
         alt={`bild på ${mug.name}`}
         sx={{
+          width: "100%",
+          height: 300,
           objectFit: "cover",
+          flexShrink: 0,
         }}
       />
 
-      <CardContent>
+      <CardContent
+        sx={{
+          height: 220,
+          boxSizing: "border-box",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <Typography
           gutterBottom
           variant="h5"
           component="div"
           sx={{
             fontFamily: "Georgia, serif",
-            fontWeight: 700,
+            fontWeight: 500,
           }}
         >
           {mug.name}
         </Typography>
-        <Typography variant="body2" sx={{ color: "text.secondary", mb: 1 }}>
+
+        <Typography
+          variant="body2"
+          sx={{
+            color: "text.secondary",
+          }}
+        >
           {mug.description}
         </Typography>
+
         <Typography
           variant="body1"
           sx={{
-            fontWeight: 600,
-            mb: 2,
+            fontWeight: 500,
+            mt: 1,
           }}
         >
           {mug.price} kr
@@ -58,6 +77,8 @@ export default function ProductCard({ mug, addToCart }: ProductCardProps) {
           variant="contained"
           onClick={() => addToCart(mug)}
           sx={{
+            mt: "auto",
+            alignSelf: "flex-start",
             backgroundColor: "#7A5236",
             borderRadius: "20px",
             "&:hover": {
@@ -65,7 +86,7 @@ export default function ProductCard({ mug, addToCart }: ProductCardProps) {
             },
           }}
         >
-          Add to Cart
+          ADD TO CART
         </Button>
       </CardContent>
     </Card>
