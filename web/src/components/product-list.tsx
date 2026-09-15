@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getMugs } from "../api/mugs";
-import { Fragment } from "react/jsx-runtime";
 import ProductCard from "./product-card";
+import { Grid } from "@mui/material";
 
 
 export default function ProductList(){
@@ -23,10 +23,8 @@ export default function ProductList(){
     }
 
     return(
-        <Fragment>
-            <div>
-                {query.data?.map((mug) => (<ProductCard key={mug.id} mug={mug} />))}
-            </div>
-        </Fragment>
+        <Grid>
+            {query.data?.map((mug) => (<ProductCard key={mug.id} mug={mug} />))}
+        </Grid>
     )
 }
