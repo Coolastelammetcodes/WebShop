@@ -29,13 +29,14 @@ export default function Footer() {
         <Typography
           variant="body2"
           sx={{
-            fontFamily: "Arial, sans-serif",
+            fontFamily: "Georgia, serif",
             fontWeight: 700,
             fontSize: "1.2rem",
-            letterSpacing: "1px",
+            letterSpacing: ".2rem",
+            color: "#333333",
           }}
         >
-          WebShop
+          Mug & Co.
         </Typography>
 
         <Box
@@ -102,15 +103,24 @@ export default function Footer() {
           </Box>
         </Box>
 
-        <Typography
-          variant="body2"
-          sx={{
-            marginRight: 4,
-            fontWeight: 500,
-          }}
-        >
-          Contact us
-        </Typography>
+        <Box sx={{ marginRight: 4 }}>
+          <Typography
+            variant="body2"
+            sx={{
+              fontWeight: 600,
+              marginBottom: 1,
+              color: "#333333",
+            }}
+          >
+            Contact Us
+          </Typography>
+
+          <Typography variant="body2">hello@mugandco.se</Typography>
+
+          <Typography variant="body2">+46 70 123 ** **</Typography>
+
+          <Typography variant="body2">Borås</Typography>
+        </Box>
       </Box>
     </Paper>
   );
