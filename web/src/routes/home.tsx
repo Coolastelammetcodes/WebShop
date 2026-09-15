@@ -72,12 +72,18 @@ export function Home({ addToCart }: HomeProps) {
           </div>
         ))} */}
 
-        <Grid sx={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
+        <Grid
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 280px)",
+            justifyContent: "center",
+            gap: 3,
+            px: 2,
+            py: 4,
+          }}
+        >
           {query.data?.map((mug) => (
-            <Box key={mug.id}>
-              <ProductCard key={mug.id} mug={mug} />
-              <Button onClick={() => addToCart(mug)}>Add to cart</Button>
-            </Box>
+            <ProductCard key={mug.id} mug={mug} addToCart={addToCart} />
           ))}
         </Grid>
       </main>
