@@ -6,11 +6,10 @@ import { Checkout } from "./routes/checkout";
 import { Dashboard } from "./routes/dashboard/dashboard";
 import type { Mug } from "./routes/dashboard/mugSchema";
 import { Home } from "./routes/home";
+import { OrderSummary } from "./routes/order-summary";
 import { ShoppingCart } from "./routes/shopping-cart";
+import type { CartItem } from "./types/cart";
 
-type CartItem = Mug & {
-  quantity: number;
-};
 export default function App() {
   const [cart, setCart] = useState<CartItem[]>([]);
 
@@ -72,7 +71,8 @@ export default function App() {
             }
           />
 
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout" element={<Checkout cart={cart} />} />
+          <Route path="/order-summary" element={<OrderSummary />} />
         </Routes>
         <Footer />
       </BrowserRouter>
