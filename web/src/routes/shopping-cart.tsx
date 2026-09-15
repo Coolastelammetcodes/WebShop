@@ -1,7 +1,21 @@
 import Breadcrumbs from "../components/breadcrumbs";
 import type { Mug } from "./dashboard/mugSchema";
 
-export function ShoppingCart({ cart }: { cart: Mug[] }) {
+type CartItem = Mug & {
+  quantity: number;
+};
+
+export function ShoppingCart({
+  cart,
+  increaseQuantity,
+  decreaseQuantity,
+  removeFromCart,
+}: {
+  cart: CartItem[];
+  increaseQuantity: (name: string) => void;
+  decreaseQuantity: (name: string) => void;
+  removeFromCart: (name: string) => void;
+}) {
   return (
     <>
       <Breadcrumbs currentPage="Shopping Cart" />
@@ -16,6 +30,13 @@ export function ShoppingCart({ cart }: { cart: Mug[] }) {
           <p>{mug.description}</p>
 
           <p>{mug.price} kr</p>
+          <p>Quantity: {mug.quantity}</p>
+          <button onClick={() => decreaseQuantity(mug.name)}>-</button>
+
+          <span> {mug.quantity} </span>
+
+          <button onClick={() => increaseQuantity(mug.name)}>+</button>
+          <button onClick={() => removeFromCart(mug.name)}>Remove</button>
         </div>
       ))}
     </>
