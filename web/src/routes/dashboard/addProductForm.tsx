@@ -38,8 +38,17 @@ export function AddProductForm() {
 
   return (
     <>
-      <Button variant="contained" onClick={handleOpen}>
-        Add Mug
+      <Button
+        variant="contained"
+        onClick={handleOpen}
+        sx={{
+          backgroundColor: "#6F4E37",
+          "&:hover": {
+            backgroundColor: "#5A3E2B",
+          },
+        }}
+      >
+        ADD MUG
       </Button>
 
       <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">

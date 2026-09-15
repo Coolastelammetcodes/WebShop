@@ -1,3 +1,11 @@
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+} from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useSetAtom } from "jotai";
 import { deleteMug, getMugs } from "../../api/mugs";
@@ -29,53 +37,89 @@ export function DisplayProducts() {
   });
 
   return (
-    <>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {fetchQuery.data?.map((mug: any) => (
-          <div
-            key={mug.id}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              maxWidth: "400px",
-              maxHeight: "400px",
-              backgroundColor: "#2e2e2e",
-              padding: "1em",
-              margin: "0.5em",
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 3,
+        mt: 4,
+      }}
+    >
+      {fetchQuery.data?.map((mug: MugWithId) => (
+        <Card
+          key={mug.id}
+          sx={{
+            width: 280,
+            backgroundColor: "#D6CEC2",
+            borderRadius: 2,
+            overflow: "hidden",
+          }}
+        >
+          <Box
+            component="img"
+            src={mug.filepath}
+            alt={mug.name}
+            sx={{
+              width: "100%",
+              height: 220,
+              objectFit: "cover",
             }}
-          >
-            <img
-              src={mug.filepath}
-              onClick={() => console.log("click")}
-              alt="a mug"
-              style={{
-                maxWidth: "250px",
-                maxHeight: "250px",
-              }}
-            />
-            <div style={{ width: "100%" }}>
-              <p>product name: {mug.name}</p>
-              <p>product description: {mug.description}</p>
-              <p>product price: {mug.price}:-</p>
-            </div>
+          />
 
-            <div
-              style={{
-                display: "flex",
-                width: "100%",
-                justifyContent: "flex-end",
+          <CardContent>
+            <Typography
+              variant="h6"
+              sx={{
+                fontFamily: "Georgia, serif",
+                fontWeight: 700,
+                mb: 1,
               }}
             >
-              <button onClick={() => handleEdit(mug)}>edit</button>
-              <button onClick={() => deleteQuery.mutate(mug.id)}>
-                {deleteQuery.isPending ? "deleting" : "delete"}
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
+              {mug.name}
+            </Typography>
+
+            <Typography variant="body2" sx={{ mb: 1 }}>
+              {mug.description}
+            </Typography>
+
+            <Typography variant="body1" sx={{ fontWeight: 600 }}>
+              {mug.price} kr
+            </Typography>
+          </CardContent>
+
+          <CardActions sx={{ justifyContent: "flex-end", px: 2, pb: 2 }}>
+            <Button
+              size="small"
+              variant="outlined"
+              onClick={() => handleEdit(mug)}
+              sx={{
+                color: "#6F4E37",
+                borderColor: "#6F4E37",
+                "&:hover": {
+                  borderColor: "#5A3E2B",
+                  backgroundColor: "rgba(111, 78, 55, 0.08)",
+                },
+              }}
+            >
+              Edit
+            </Button>
+
+            <Button
+              size="small"
+              variant="contained"
+              onClick={() => deleteQuery.mutate(mug.id)}
+              sx={{
+                backgroundColor: "#6F4E37",
+                "&:hover": {
+                  backgroundColor: "#5A3E2B",
+                },
+              }}
+            >
+              {deleteQuery.isPending ? "Deleting..." : "Delete"}
+            </Button>
+          </CardActions>
+        </Card>
+      ))}
+    </Box>
   );
 }

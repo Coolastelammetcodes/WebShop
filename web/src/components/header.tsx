@@ -1,5 +1,5 @@
-import CoffeeIcon from "@mui/icons-material/Coffee";
 import MenuIcon from "@mui/icons-material/Menu";
+import PersonIcon from "@mui/icons-material/Person";
 import AppBar from "@mui/material/AppBar";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
@@ -28,6 +28,7 @@ export default function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null,
   );
+
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null,
   );
@@ -35,6 +36,7 @@ export default function Header() {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -51,29 +53,30 @@ export default function Header() {
     <AppBar position="static" sx={{ backgroundColor: "#D6CEC2" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <CoffeeIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          {/* Logo - desktop */}
           <Typography
             variant="h6"
             noWrap
             component={Link}
             to="/"
             sx={{
-              mr: 2,
+              mr: 4,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              fontFamily: "Georgia, serif",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: ".2rem",
               color: "#333333",
               textDecoration: "none",
             }}
           >
-            LOGO
+            Mug & Co.
           </Typography>
 
+          {/* Mobile menu */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="navigation menu"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -81,6 +84,7 @@ export default function Header() {
             >
               <MenuIcon />
             </IconButton>
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -111,7 +115,8 @@ export default function Header() {
               ))}
             </Menu>
           </Box>
-          <CoffeeIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+
+          {/* Logo - mobile */}
           <Typography
             variant="h5"
             noWrap
@@ -121,15 +126,16 @@ export default function Header() {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
+              fontFamily: "Georgia, serif",
               fontWeight: 700,
-              letterSpacing: ".3rem",
               color: "#333333",
               textDecoration: "none",
             }}
           >
-            LOGO
+            Mug & Co.
           </Typography>
+
+          {/* Desktop navigation */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
@@ -137,21 +143,47 @@ export default function Header() {
                 component={Link}
                 to={page.path}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "#333333", display: "block" }}
+                sx={{
+                  pt: "10px",
+                  color: "#333333",
+                  display: "block",
+                }}
               >
                 {page.label}
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+
+          {/* My Account */}
+          <Box
+            sx={{
+              flexGrow: 0,
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+            }}
+          >
+            <Tooltip title="My Account">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar>
+                  <PersonIcon />
+                </Avatar>
               </IconButton>
             </Tooltip>
+            <Button
+              onClick={handleOpenUserMenu}
+              sx={{
+                pt: "10px",
+                color: "#333333",
+                display: "block",
+              }}
+            >
+              My Account
+            </Button>
+
             <Menu
               sx={{ mt: "45px" }}
-              id="menu-appbar"
+              id="user-menu"
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: "top",
