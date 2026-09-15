@@ -16,7 +16,7 @@ export default function ProductCard({ mug }: ProductCardProps) {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={mug.filepath}
           alt={`bild på ${mug.name}`}
         />
         <CardContent>

@@ -6,7 +6,6 @@ import { Dashboard } from "./routes/dashboard/dashboard";
 import type { Mug } from "./routes/dashboard/mugSchema";
 import { Home } from "./routes/home";
 import { ShoppingCart } from "./routes/shopping-cart";
-import ProductList from "./components/product-list";
 
 export default function App() {
   const [cart, setCart] = useState<Mug[]>([]);
@@ -17,10 +16,13 @@ export default function App() {
     <>
       <BrowserRouter>
         <Header></Header>
-        <ProductList />
-
+        
         <Routes>
-          <Route path="/" element={<Home addToCart={AddToCart} />}></Route>
+          <Route path="/" element={
+              <>
+                <Home addToCart={AddToCart} />
+              </>
+            }></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route
             path="/shopping-cart"
