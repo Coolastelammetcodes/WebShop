@@ -1,7 +1,11 @@
 import Breadcrumbs from "../components/breadcrumbs";
 import type { Mug } from "./dashboard/mugSchema";
 
-export function ShoppingCart({ cart }: { cart: Mug[] }) {
+type CartItem = Mug & {
+  quantity: number;
+};
+
+export function ShoppingCart({ cart }: { cart: CartItem[] }) {
   return (
     <>
       <Breadcrumbs currentPage="Shopping Cart" />
@@ -16,6 +20,7 @@ export function ShoppingCart({ cart }: { cart: Mug[] }) {
           <p>{mug.description}</p>
 
           <p>{mug.price} kr</p>
+          <p>Quantity: {mug.quantity}</p>
         </div>
       ))}
     </>

@@ -7,17 +7,25 @@ import type { Mug } from "./routes/dashboard/mugSchema";
 import { Home } from "./routes/home";
 import { ShoppingCart } from "./routes/shopping-cart";
 
+type CartItem = Mug & {
+  quantity: number;
+};
 export default function App() {
-  const [cart, setCart] = useState<Mug[]>([]);
+  const [cart, setCart] = useState<CartItem[]>([]);
+
   function AddToCart(mug: Mug) {
     setCart((currentCart) => {
       const existingMug = currentCart.find((item) => item.name === mug.name);
 
       if (existingMug) {
-        return currentCart;
+        return currentCart.map((item) =>
+          item.name === mug.name
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
+        );
       }
 
-      return [...currentCart, mug];
+      return [...currentCart, { ...mug, quantity: 1 }];
     });
   }
   return (
