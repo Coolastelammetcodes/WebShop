@@ -10,7 +10,15 @@ import { ShoppingCart } from "./routes/shopping-cart";
 export default function App() {
   const [cart, setCart] = useState<Mug[]>([]);
   function AddToCart(mug: Mug) {
-    setCart([...cart, mug]);
+    setCart((currentCart) => {
+      const existingMug = currentCart.find((item) => item.name === mug.name);
+
+      if (existingMug) {
+        return currentCart;
+      }
+
+      return [...currentCart, mug];
+    });
   }
   return (
     <>
