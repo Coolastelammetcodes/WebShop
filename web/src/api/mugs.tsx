@@ -43,6 +43,19 @@ export async function getMugs(): Promise<Mug[]>{
   return response.json();
 }
 
+export async function getSpecificMug(id:string){
+  const response = await fetch(`/api/v1/mugs/${id}`);
+   const url = `/api/v1/mugs/${id}`;
+
+  console.log("Request URL:", url);
+
+  if (!response.ok) {
+    throw new Error(`failed to fetch mug: ${response.status}`);
+  }
+
+  return response.json();
+}
+
 export async function addMug(mug: Mug) {
   const response = await fetch("/api/v1/mugs", {
     method: "POST",

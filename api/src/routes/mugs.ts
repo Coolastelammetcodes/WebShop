@@ -9,6 +9,18 @@ mugs.get("/", async (c) => {
   return c.json(res, 200);
 });
 
+mugs.get("/:id", async (c) => {
+  const id = c.req.param("id");
+
+  const res = await db.mug.findUnique({
+    where: {
+      id: Number(id),
+    }
+  });
+
+  return c.json(res, 200);
+});
+
 mugs.post("/", async (c) => {
   const mug = await c.req.json();
   const res = await db.mug.create({ data: mug });
