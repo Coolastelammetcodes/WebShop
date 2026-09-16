@@ -4,6 +4,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import type { Mug } from "../types/mug";
+import { Link } from "react-router";
+import { CardActionArea } from "@mui/material";
 
 type ProductCardProps = {
   mug: Mug;
@@ -22,6 +24,7 @@ export default function ProductCard({ mug, addToCart }: ProductCardProps) {
         flexDirection: "column",
       }}
     >
+      <CardActionArea component={Link} to={`/products/${mug.id}`}>
       <CardMedia
         component="img"
         image={mug.filepath}
@@ -73,6 +76,8 @@ export default function ProductCard({ mug, addToCart }: ProductCardProps) {
           {mug.price} kr
         </Typography>
 
+      </CardContent>
+      </CardActionArea>
         <Button
           variant="contained"
           onClick={() => addToCart(mug)}
@@ -88,7 +93,6 @@ export default function ProductCard({ mug, addToCart }: ProductCardProps) {
         >
           ADD TO CART
         </Button>
-      </CardContent>
     </Card>
   );
 }

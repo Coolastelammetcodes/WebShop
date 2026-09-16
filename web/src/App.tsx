@@ -9,6 +9,7 @@ import { Home } from "./routes/home";
 import { OrderSummary } from "./routes/order-summary";
 import { ShoppingCart } from "./routes/shopping-cart";
 import type { CartItem } from "./types/cart";
+import ProductDetails from "./routes/product-details";
 
 export default function App() {
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -73,6 +74,7 @@ export default function App() {
 
           <Route path="/checkout" element={<Checkout cart={cart} />} />
           <Route path="/order-summary" element={<OrderSummary />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
         </Routes>
         
         <Footer />
