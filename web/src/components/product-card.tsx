@@ -24,7 +24,7 @@ export default function ProductCard({ mug, addToCart }: ProductCardProps) {
         flexDirection: "column",
       }}
     >
-      <CardActionArea component={Link} to={`/products/${mug.id}`}>
+      <CardActionArea component={Link} to={`/mugs/${mug.id}`}>
       <CardMedia
         component="img"
         image={mug.filepath}

@@ -74,7 +74,7 @@ export default function App() {
 
           <Route path="/checkout" element={<Checkout cart={cart} />} />
           <Route path="/order-summary" element={<OrderSummary />} />
-          <Route path="/products/:id" element={<ProductDetails />} />
+          <Route path="/mugs/:id" element={<ProductDetails />} />
         </Routes>
         
         <Footer />
