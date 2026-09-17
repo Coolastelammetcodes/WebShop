@@ -1,7 +1,8 @@
-import { Box, CardMedia, Typography } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
-import { getMugs, getSpecificMug } from "../api/mugs";
+import { getSpecificMug } from "../api/mugs";
+import ProductImage from "../components/product-details/product-image";
 
 export default function ProductDetails() {
     const { id } = useParams<{id: string}>()
@@ -19,35 +20,21 @@ export default function ProductDetails() {
   }
 
   return (
-    <Box component="main">
-
-        <CardMedia
-        component="img"
-        image={mug.filepath}
-        alt={`bild på ${mug.name}`}
+    <Box
+      component="main"
+      sx={{
+        margin: "0",
+        padding: { xs: "1rem", md: "2rem" },
+      }}
+    >
+      <Grid
         sx={{
-          width: "45%",
-          height: 300,
-          objectFit: "cover",
-          flexShrink: 0,
+          display: "flex",
+          alignItems: "center",
         }}
-      />
-
-      <Typography variant="h4">
-        {mug.name}
-      </Typography>
-
-      <Typography>
-        {mug.description}
-      </Typography>
-
-      <Typography>
-        {mug.price} kr
-      </Typography>
-
-      <Typography>
-        ID: {mug.id}
-      </Typography>
+      >
+       <ProductImage mug={mug}/>
+      </Grid>
     </Box>
   );
 }
