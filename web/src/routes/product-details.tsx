@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import { getSpecificMug } from "../api/mugs";
 import ProductImage from "../components/product-details/product-image";
+import ProductInfo from "../components/product-details/product-info";
 
 export default function ProductDetails() {
     const { id } = useParams<{id: string}>()
@@ -35,6 +36,9 @@ export default function ProductDetails() {
       >
        <ProductImage mug={mug}/>
       </Grid>
+      <Box>
+        <ProductInfo mug={mug}/>
+      </Box>
     </Box>
   );
 }
