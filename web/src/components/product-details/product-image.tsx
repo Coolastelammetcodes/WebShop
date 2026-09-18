@@ -8,7 +8,7 @@ type ProductImageProps = {
 export default function ProductImage({ mug }: ProductImageProps) {
   return (
     <Paper
-    elevation={1}
+      elevation={1}
       sx={{
         backgroundColor: "whitesmoke",
         padding: "1rem",
@@ -20,7 +20,8 @@ export default function ProductImage({ mug }: ProductImageProps) {
         alt={`Bild på ${mug.name}`}
         sx={{
           width: "100%",
-          maxHeight: 600,
+          maxWidth: 450,
+          maxHeight: 500,
           objectFit: "contain",
         }}
       />

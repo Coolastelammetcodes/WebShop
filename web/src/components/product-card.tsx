@@ -26,7 +26,7 @@ export default function ProductCard({ mug, addToCart }: ProductCardProps) {
         cursor: "pointer",
       }}
     >
-      <CardActionArea component={Link} to={`/product/${mug.id}`}>
+      <CardActionArea component={Link} to={`/mugs/${mug.id}`}>
         <CardMedia
           component="img"
           image={mug.filepath}
