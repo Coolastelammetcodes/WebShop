@@ -1,5 +1,5 @@
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import type { Mug } from "../../types/mug";
 import DescriptionAccordion from "./description-accordion";
 
@@ -18,35 +18,34 @@ export default function ProductInfo({ mug, addToCart }: ProductInfoProps) {
             alignItems: "center",
           }}
         >
-          <Stack >
+          <Stack>
             <Typography
               variant="h5"
               sx={{
                 fontWeight: "bold",
                 textTransform: "capitalize",
-                fontSize:"3.5rem",
-                fontFamily:"fangsong",
+                fontSize: {
+                  xs: "2rem",
+                  md: "2.5rem",
+                },
+                fontFamily: "Georgia, serif",
               }}
             >
               {mug.name}
             </Typography>
-            <Stack direction={"row"} sx={{
-                  textTransform: "capitalize",
-                  fontSize:"",
-                  fontFamily:"fangsong",
-                  marginLeft:"0.5rem"
-                }}>
-              <Typography
-                variant="body1"
-                sx={{marginRight:"0.5rem"}}
-              >
+            <Stack
+              direction={"row"}
+              sx={{
+                textTransform: "capitalize",
+                fontSize: "",
+                fontFamily: "fangsong",
+                marginLeft: "0.5rem",
+              }}
+            >
+              <Typography variant="body1" sx={{ marginRight: "0.5rem" }}>
                 product id:
               </Typography>
-              <Typography
-                variant="body1"
-              >
-                {mug.id}
-              </Typography>
+              <Typography variant="body1">{mug.id}</Typography>
             </Stack>
           </Stack>
         </Box>
@@ -72,10 +71,8 @@ export default function ProductInfo({ mug, addToCart }: ProductInfoProps) {
           >
             SEK/mug
           </Typography>
-        
         </Box>
-          
-        
+
         <Button
           variant="contained"
           onClick={() => addToCart(mug)}
@@ -91,17 +88,17 @@ export default function ProductInfo({ mug, addToCart }: ProductInfoProps) {
         >
           ADD TO CART
         </Button>
-        
+
         <DescriptionAccordion mug={mug} />
 
         <Stack direction="row" spacing="0.5rem">
-          <LocalShippingIcon fontSize="small"/>
+          <LocalShippingIcon fontSize="small" />
 
           <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
             3-5 business days
           </Typography>
         </Stack>
-      
+
         <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
           Lowest price in the last 30 days: {mug.price} SEK
         </Typography>
