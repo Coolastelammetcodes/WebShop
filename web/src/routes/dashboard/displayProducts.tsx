@@ -4,6 +4,7 @@ import {
   Card,
   CardActions,
   CardContent,
+  CardMedia,
   Typography,
 } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -39,9 +40,12 @@ export function DisplayProducts() {
   return (
     <Box
       sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: 3,
+        display: "grid",
+        gridTemplateColumns: {
+          xs: "1fr",
+          sm: "repeat(auto-fill, minmax(240px, 1fr))",
+        },
+        gap: { xs: 2, sm: 3 },
         mt: 4,
       }}
     >
@@ -49,55 +53,83 @@ export function DisplayProducts() {
         <Card
           key={mug.id}
           sx={{
-            width: 280,
-            backgroundColor: "#D6CEC2",
-            borderRadius: 2,
-            overflow: "hidden",
+            height: "100%",
+            borderRadius: "8px",
+            boxShadow: 2,
+            display: "flex",
+            flexDirection: "column",
           }}
         >
-          <Box
+          <CardMedia
             component="img"
-            src={mug.filepath}
-            alt={mug.name}
+            image={mug.filepath}
+            alt={`bild på ${mug.name}`}
             sx={{
               width: "100%",
-              height: 220,
+              height: { xs: 200, sm: 270 },
               objectFit: "cover",
             }}
           />
 
-          <CardContent>
+          <CardContent
+            sx={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              padding: 2,
+            }}
+          >
             <Typography
-              variant="h6"
+              variant="h5"
               sx={{
                 fontFamily: "Georgia, serif",
-                fontWeight: 700,
-                mb: 1,
+                fontWeight: 500,
+                fontSize: { xs: "1.15rem", sm: "1.5rem" },
               }}
             >
               {mug.name}
             </Typography>
 
-            <Typography variant="body2" sx={{ mb: 1 }}>
+            <Typography
+              variant="body2"
+              sx={{
+                color: "text.secondary",
+                mt: 1,
+              }}
+            >
               {mug.description}
             </Typography>
 
-            <Typography variant="body1" sx={{ fontWeight: 600 }}>
+            <Typography
+              variant="body1"
+              sx={{
+                fontWeight: 500,
+                mt: 1,
+              }}
+            >
               {mug.price} kr
             </Typography>
           </CardContent>
 
-          <CardActions sx={{ justifyContent: "flex-end", px: 2, pb: 2 }}>
+          <CardActions
+            sx={{
+              justifyContent: "flex-start",
+              px: 2,
+              pb: 2,
+              flexWrap: "wrap",
+              gap: 1,
+            }}
+          >
             <Button
-              size="small"
               variant="outlined"
               onClick={() => handleEdit(mug)}
               sx={{
-                color: "#6F4E37",
-                borderColor: "#6F4E37",
+                borderRadius: "20px",
+                color: "#7A5236",
+                borderColor: "#7A5236",
                 "&:hover": {
-                  borderColor: "#5A3E2B",
-                  backgroundColor: "rgba(111, 78, 55, 0.08)",
+                  borderColor: "#5F3E29",
+                  backgroundColor: "rgba(122, 82, 54, 0.08)",
                 },
               }}
             >
@@ -105,13 +137,13 @@ export function DisplayProducts() {
             </Button>
 
             <Button
-              size="small"
               variant="contained"
               onClick={() => deleteQuery.mutate(mug.id)}
               sx={{
-                backgroundColor: "#6F4E37",
+                borderRadius: "20px",
+                backgroundColor: "#7A5236",
                 "&:hover": {
-                  backgroundColor: "#5A3E2B",
+                  backgroundColor: "#5F3E29",
                 },
               }}
             >
