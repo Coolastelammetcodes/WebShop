@@ -1,32 +1,33 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Box, Button, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import type { CartItem } from "../types/cart";
+import type { CartItem } from "../../types/cart";
+import { type CustomerFormData, customerSchema } from "./checkoutSchema";
 
 export function Checkout({ cart }: { cart: CartItem[] }) {
   const navigate = useNavigate();
-  const [customer, setCustomer] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    address: "",
-    city: "",
-    postalCode: "",
-  });
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setCustomer({
-      ...customer,
-      [event.target.name]: event.target.value,
-    });
-  }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<CustomerFormData>({
+    resolver: zodResolver(customerSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      address: "",
+      city: "",
+      postalCode: "",
+    },
+  });
 
   const total = cart.reduce((sum, mug) => sum + mug.price * mug.quantity, 0);
 
-  function handleSubmit(event: React.FormEvent) {
-    event.preventDefault();
-
+  function onSubmit(customer: CustomerFormData) {
     const order = {
       customer: customer,
       items: cart,
@@ -37,6 +38,7 @@ export function Checkout({ cart }: { cart: CartItem[] }) {
       state: order,
     });
   }
+
   return (
     <Box
       sx={{
@@ -57,7 +59,7 @@ export function Checkout({ cart }: { cart: CartItem[] }) {
 
       <Box
         component="form"
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(onSubmit)}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -66,59 +68,58 @@ export function Checkout({ cart }: { cart: CartItem[] }) {
       >
         <TextField
           label="First Name"
-          name="firstName"
-          value={customer.firstName}
-          onChange={handleChange}
           fullWidth
+          {...register("firstName")}
+          error={!!errors.firstName}
+          helperText={errors.firstName?.message}
         />
 
         <TextField
           label="Last Name"
-          name="lastName"
-          value={customer.lastName}
-          onChange={handleChange}
           fullWidth
+          {...register("lastName")}
+          error={!!errors.lastName}
+          helperText={errors.lastName?.message}
         />
 
         <TextField
           label="Email"
-          name="email"
-          type="email"
-          value={customer.email}
-          onChange={handleChange}
           fullWidth
+          {...register("email")}
+          error={!!errors.email}
+          helperText={errors.email?.message}
         />
 
         <TextField
           label="Phone"
-          name="phone"
-          value={customer.phone}
-          onChange={handleChange}
           fullWidth
+          {...register("phone")}
+          error={!!errors.phone}
+          helperText={errors.phone?.message}
         />
 
         <TextField
           label="Address"
-          name="address"
-          value={customer.address}
-          onChange={handleChange}
           fullWidth
+          {...register("address")}
+          error={!!errors.address}
+          helperText={errors.address?.message}
         />
 
         <TextField
           label="City"
-          name="city"
-          value={customer.city}
-          onChange={handleChange}
           fullWidth
+          {...register("city")}
+          error={!!errors.city}
+          helperText={errors.city?.message}
         />
 
         <TextField
           label="Postal Code"
-          name="postalCode"
-          value={customer.postalCode}
-          onChange={handleChange}
           fullWidth
+          {...register("postalCode")}
+          error={!!errors.postalCode}
+          helperText={errors.postalCode?.message}
         />
 
         <Button

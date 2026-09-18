@@ -2,14 +2,14 @@ import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
 import Footer from "./components/footer";
 import Header from "./components/header";
-import { Checkout } from "./routes/checkout";
+import { Checkout } from "./routes/checkout/checkout";
 import { Dashboard } from "./routes/dashboard/dashboard";
 import type { Mug } from "./routes/dashboard/mugSchema";
 import { Home } from "./routes/home";
 import { OrderSummary } from "./routes/order-summary";
+import ProductDetails from "./routes/product-details";
 import { ShoppingCart } from "./routes/shopping-cart";
 import type { CartItem } from "./types/cart";
-import ProductDetails from "./routes/product-details";
 
 export default function App() {
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -74,9 +74,12 @@ export default function App() {
 
           <Route path="/checkout" element={<Checkout cart={cart} />} />
           <Route path="/order-summary" element={<OrderSummary />} />
-          <Route path="/mugs/:id" element={<ProductDetails addToCart={AddToCart} />} />
+          <Route
+            path="/mugs/:id"
+            element={<ProductDetails addToCart={AddToCart} />}
+          />
         </Routes>
-        
+
         <Footer />
       </BrowserRouter>
     </>
