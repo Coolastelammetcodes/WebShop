@@ -5,7 +5,7 @@ import Footer from "./components/footer";
 import Header from "./components/header";
 import { Checkout } from "./routes/checkout/checkout";
 import { Dashboard } from "./routes/dashboard/dashboard";
-import type { Mug } from "./routes/dashboard/mugSchema";
+import { Mug } from "./routes/dashboard/mugSchema";
 import { Home } from "./routes/home";
 import { OrderSummary } from "./routes/order-summary";
 import ProductDetails from "./routes/product-details";
