@@ -20,7 +20,7 @@ En Webbshop som säljer muggar
 - [x] Ska ha en övergripande layout med header, main & footer.
 - [x] Detaljsidan ska visa all info om en produkt.
 - [x] Det ska gå att lägga till produkten i kundvagnen (header + toast + ls).
-- [ ] Sidan ska vara responsiv och gå att använda på mobil, tablet & desktop.
+- [x] Sidan ska vara responsiv och gå att använda på mobil, tablet & desktop.
 
 **Kundvagn & Checkout**
 
