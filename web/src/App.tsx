@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
 import Footer from "./components/footer";
 import Header from "./components/header";
-import { Checkout } from "./routes/checkout";
+import { Checkout } from "./routes/checkout/checkout";
 import { Dashboard } from "./routes/dashboard/dashboard";
 import type { Mug } from "./routes/dashboard/mugSchema";
 import { Home } from "./routes/home";
@@ -91,7 +91,7 @@ export default function App() {
 
           <Route path="/order-summary" element={<OrderSummary />} />
 
-          <Route
+          <Route1
             path="/mugs/:id"
             element={<ProductDetails addToCart={AddToCart} />}
           />
