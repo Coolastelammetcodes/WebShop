@@ -80,7 +80,16 @@ export function ShoppingCart({
         <Typography variant="h5" sx={{ marginTop: "30px" }}>
           Total: {total} kr
         </Typography>
-        <Button variant="contained" onClick={() => navigate("/checkout")}>
+        <Button
+          variant="contained"
+          onClick={() => navigate("/checkout")}
+          sx={{
+            backgroundColor: "#7A5236",
+            "&:hover": {
+              backgroundColor: "#5F3E29",
+            },
+          }}
+        >
           Checkout
         </Button>
       </Box>

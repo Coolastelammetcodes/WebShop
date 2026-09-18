@@ -69,6 +69,7 @@ export function Checkout({ cart }: { cart: CartItem[] }) {
         <TextField
           label="First Name"
           fullWidth
+          autoComplete="given-name"
           {...register("firstName")}
           error={!!errors.firstName}
           helperText={errors.firstName?.message}
@@ -77,6 +78,7 @@ export function Checkout({ cart }: { cart: CartItem[] }) {
         <TextField
           label="Last Name"
           fullWidth
+          autoComplete="family-name"
           {...register("lastName")}
           error={!!errors.lastName}
           helperText={errors.lastName?.message}
@@ -85,6 +87,7 @@ export function Checkout({ cart }: { cart: CartItem[] }) {
         <TextField
           label="Email"
           fullWidth
+          autoComplete="email"
           {...register("email")}
           error={!!errors.email}
           helperText={errors.email?.message}
@@ -93,6 +96,7 @@ export function Checkout({ cart }: { cart: CartItem[] }) {
         <TextField
           label="Phone"
           fullWidth
+          autoComplete="tel"
           {...register("phone")}
           error={!!errors.phone}
           helperText={errors.phone?.message}
@@ -101,6 +105,7 @@ export function Checkout({ cart }: { cart: CartItem[] }) {
         <TextField
           label="Address"
           fullWidth
+          autoComplete="street-address"
           {...register("address")}
           error={!!errors.address}
           helperText={errors.address?.message}
@@ -109,6 +114,7 @@ export function Checkout({ cart }: { cart: CartItem[] }) {
         <TextField
           label="City"
           fullWidth
+          autoComplete="address-level2"
           {...register("city")}
           error={!!errors.city}
           helperText={errors.city?.message}
@@ -117,6 +123,7 @@ export function Checkout({ cart }: { cart: CartItem[] }) {
         <TextField
           label="Postal Code"
           fullWidth
+          autoComplete="postal-code"
           {...register("postalCode")}
           error={!!errors.postalCode}
           helperText={errors.postalCode?.message}
@@ -128,6 +135,10 @@ export function Checkout({ cart }: { cart: CartItem[] }) {
           sx={{
             marginTop: "10px",
             padding: "12px",
+            backgroundColor: "#7A5236",
+            "&:hover": {
+              backgroundColor: "#5F3E29",
+            },
           }}
         >
           Continue

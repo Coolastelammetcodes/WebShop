@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { getMugs } from "../api/mugs";
 import ProductCard from "../components/product-card";
@@ -83,20 +83,6 @@ export function Home({ addToCart }: HomeProps) {
           <Typography variant="h6" sx={{ mb: 3 }}>
             Find your perfect mug for every moment.
           </Typography>
-
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: "#000",
-              borderRadius: "20px",
-              px: 4,
-              "&:hover": {
-                backgroundColor: "#333",
-              },
-            }}
-          >
-            Shop Now
-          </Button>
         </Box>
       </Box>
 
