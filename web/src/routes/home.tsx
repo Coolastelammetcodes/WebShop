@@ -18,12 +18,25 @@ export function Home({ addToCart }: HomeProps) {
     <>
       <Box
         sx={{
-          minHeight: "400px",
+          minHeight: {
+            xs: "300px",
+            md: "400px",
+          },
+          overflow: "hidden",
           backgroundImage:
             "linear-gradient(rgba(210,202,190,0.18),rgba(210,202,190,0.18)),url('/hero-mugs.jpeg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          animation: "zoom 8s ease-in-out infinite alternate",
+          backgroundSize: {
+            xs: "auto 100%",
+            md: "cover",
+          },
+          backgroundPosition: {
+            xs: "center",
+            md: "center",
+          },
+          animation: {
+            xs: "none",
+            md: "zoom 8s ease-in-out infinite alternate",
+          },
 
           "@keyframes zoom": {
             from: {
@@ -33,13 +46,37 @@ export function Home({ addToCart }: HomeProps) {
               backgroundSize: "110%",
             },
           },
+
           display: "flex",
           alignItems: "center",
-          padding: 4,
+          padding: {
+            xs: 2,
+            sm: 3,
+            md: 4,
+          },
         }}
       >
-        <Box sx={{ maxWidth: "450px" }}>
-          <Typography variant="h2" sx={{ fontWeight: "bold", mb: 2 }}>
+        <Box
+          sx={{
+            maxWidth: {
+              xs: "280px",
+              sm: "400px",
+              md: "450px",
+            },
+          }}
+        >
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: "bold",
+              mb: 2,
+              fontSize: {
+                xs: "1.8rem",
+                sm: "2.5rem",
+                md: "3.75rem",
+              },
+            }}
+          >
             Discover Our Collection
           </Typography>
 
@@ -75,10 +112,18 @@ export function Home({ addToCart }: HomeProps) {
         <Grid
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 280px)",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 280px)",
+              md: "repeat(3, 280px)",
+            },
             justifyContent: "center",
+            justifyItems: "center",
             gap: 3,
-            px: 2,
+            px: {
+              xs: 1,
+              sm: 2,
+            },
             py: 4,
           }}
         >
