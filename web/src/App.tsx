@@ -1,5 +1,5 @@
 import { Alert, Snackbar } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
 import Footer from "./components/footer";
 import Header from "./components/header";
@@ -13,8 +13,17 @@ import { ShoppingCart } from "./routes/shopping-cart";
 import type { CartItem } from "./types/cart";
 
 export default function App() {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    const savedCart = localStorage.getItem("cart");
+
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
   const [openToast, setOpenToast] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   function AddToCart(mug: Mug) {
     setCart((currentCart) => {
@@ -30,6 +39,7 @@ export default function App() {
 
       return [...currentCart, { ...mug, quantity: 1 }];
     });
+
     setOpenToast(true);
   }
 
@@ -50,6 +60,7 @@ export default function App() {
         .filter((item) => item.quantity > 0),
     );
   }
+
   function removeFromCart(name: string) {
     setCart((currentCart) => currentCart.filter((item) => item.name !== name));
   }
@@ -57,7 +68,8 @@ export default function App() {
   return (
     <>
       <BrowserRouter>
-        <Header></Header>
+        <Header />
+
         <Routes>
           <Route path="/" element={<Home addToCart={AddToCart} />} />
 
@@ -76,12 +88,15 @@ export default function App() {
           />
 
           <Route path="/checkout" element={<Checkout cart={cart} />} />
+
           <Route path="/order-summary" element={<OrderSummary />} />
+
           <Route
             path="/mugs/:id"
             element={<ProductDetails addToCart={AddToCart} />}
           />
         </Routes>
+
         <Snackbar
           open={openToast}
           autoHideDuration={3000}

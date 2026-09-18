@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import { getSpecificMug } from "../api/mugs";
@@ -29,7 +29,7 @@ export default function ProductDetails({ addToCart }: ProductDetailsProps) {
     <Box
       component="main"
       sx={{
-        maxWidth: "1200px",
+        maxWidth: "1100px",
         margin: "0 auto",
         padding: {
           xs: "2rem 1rem",
@@ -37,41 +37,33 @@ export default function ProductDetails({ addToCart }: ProductDetailsProps) {
         },
       }}
     >
-      <Grid
-        container
-        spacing={{
-          xs: 4,
-          md: 8,
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr",
+            md: "1fr 1fr",
+          },
+          gap: {
+            xs: "2rem",
+            md: "5rem",
+          },
+          alignItems: "center",
         }}
-        alignItems="center"
       >
-        {/* Product image */}
-        <Grid
-          size={{
-            xs: 12,
-            md: 6,
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <ProductImage mug={mug} />
-          </Box>
-        </Grid>
+          <ProductImage mug={mug} />
+        </Box>
 
-        {/* Product information */}
-        <Grid
-          size={{
-            xs: 12,
-            md: 6,
-          }}
-        >
+        <Box>
           <ProductInfo mug={mug} addToCart={addToCart} />
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </Box>
   );
 }
