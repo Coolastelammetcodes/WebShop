@@ -29,7 +29,7 @@ En Webbshop som säljer muggar
 - [x] Det ska gå att se det totala priset i kundvagnen.
 - [x] Det ska gå att ändra produkterna i kundvagnen (header + vyn + pris + ls).
 - [x] Det ska gå att ange leveransuppgifter i ett formulär.
-- [ ] Samtliga fält för checkoutsidans formulär ska ha valideringsregler.
+- [x] Samtliga fält för checkoutsidans formulär ska ha valideringsregler.
 - [x] Formulären vid utcheckningen ska gå att automatiskt fyllas i.
 - [x] Bekräftelsesidan ska visa orderdetaljer och leveransuppgifter
 
@@ -40,6 +40,6 @@ En Webbshop som säljer muggar
 - [x] Det går att lägga till produkter via admin sidan
 - [x] Det går att ta bort produkter via admin sidan
 - [x] Det går att redigera produkter via admin sidan
-- [ ] Samtliga fält för adminsidans formulär ska ha valideringsregler
+- [x] Samtliga fält för adminsidans formulär ska ha valideringsregler
 
 _Gjorda krav ska kryssas för._
