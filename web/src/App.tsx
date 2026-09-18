@@ -91,7 +91,7 @@ export default function App() {
 
           <Route path="/order-summary" element={<OrderSummary />} />
 
-          <Route1
+          <Route
             path="/mugs/:id"
             element={<ProductDetails addToCart={AddToCart} />}
           />
