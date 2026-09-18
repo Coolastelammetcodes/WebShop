@@ -5,6 +5,7 @@ import { getSpecificMug } from "../api/mugs";
 import ProductImage from "../components/product-details/product-image";
 import ProductInfo from "../components/product-details/product-info";
 import type { Mug } from "../types/mug";
+import Breadcrumbs from "../components/breadcrumbs";
 
 type ProductDetailsProps = {
   addToCart: (mug: Mug) => void;
@@ -26,6 +27,8 @@ export default function ProductDetails({ addToCart }: ProductDetailsProps) {
   }
 
   return (
+    <>
+    <Breadcrumbs currentPage={`Mugs / ${mug.name}`} />
     <Box
       component="main"
       sx={{
@@ -37,6 +40,7 @@ export default function ProductDetails({ addToCart }: ProductDetailsProps) {
         },
       }}
     >
+      
       <Box
         sx={{
           display: "grid",
@@ -65,5 +69,6 @@ export default function ProductDetails({ addToCart }: ProductDetailsProps) {
         </Box>
       </Box>
     </Box>
+    </>
   );
 }

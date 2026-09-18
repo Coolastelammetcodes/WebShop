@@ -87,14 +87,6 @@ export function Home({ addToCart }: HomeProps) {
       </Box>
 
       <main>
-        {/* {query.data?.map((mug: any, index: any) => (
-          <div key={index}>
-            <p>{mug.name}</p>
-            <img src={mug.filepath} alt="" />
-            <Button onClick={() => addToCart(mug)}>Add to cart</Button>
-          </div>
-        ))} */}
-
         <Grid
           sx={{
             display: "grid",

@@ -175,7 +175,7 @@ export default function Header() {
               sx={{
                 pt: "10px",
                 color: "#333333",
-                display: "block",
+                display: {xs:"none", md:"block"},
               }}
             >
               My Account

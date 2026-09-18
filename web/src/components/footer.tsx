@@ -22,6 +22,7 @@ export default function Footer() {
       <Box
         sx={{
           display: "flex",
+          flexDirection:{xs:"column", md:"row"},
           alignItems: "center",
           paddingBottom: 1,
         }}
@@ -44,7 +45,7 @@ export default function Footer() {
           sx={{
             display: "flex",
             gap: 3,
-            marginLeft: "auto",
+            marginLeft: {md:"auto"},
           }}
         >
           <Link to="/" style={{ color: "#333", textDecoration: "none" }}>
@@ -71,14 +72,16 @@ export default function Footer() {
       <Box
         sx={{
           display: "flex",
-          justifyContent: "space-between",
-          gap: 4,
+          flexDirection:{xs:"column", sm:"row"},
+          justifyContent: {xs: "center", sm:"space-between"},
+          px: {xs:"0", md:"5rem"},
+          gap: 4
         }}
       >
-        <Box>
+        <Box sx={{display: "flex", flexDirection: {xs:"column"}}}>
           <Typography variant="body2">Stay Updated</Typography>
 
-          <Box sx={{ display: "flex", gap: 1, mt: 1, mr: 2 }}>
+          <Box sx={{ gap: 1, mt: 1, mr: 2 }}>
             <input
               placeholder="Your Email"
               style={{
@@ -103,7 +106,7 @@ export default function Footer() {
           </Box>
         </Box>
 
-        <Box sx={{ marginRight: 4 }}>
+        <Box sx={{ display: "flex", flexDirection: {xs:"column"}, textAlign: {xs:"center", sm:"inherit"}, marginRight: {sm: 4} }}>
           <Typography
             variant="body2"
             sx={{
