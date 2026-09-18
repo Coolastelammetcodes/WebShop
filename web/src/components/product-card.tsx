@@ -23,34 +23,39 @@ export default function ProductCard({ mug, addToCart }: ProductCardProps) {
         boxShadow: 2,
         display: "flex",
         flexDirection: "column",
-        cursor: "pointer",
       }}
     >
-      <CardActionArea component={Link} to={`/mugs/${mug.id}`}>
+      <CardActionArea
+        component={Link}
+        to={`/mugs/${mug.id}`}
+        sx={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "stretch",
+        }}
+      >
         <CardMedia
           component="img"
           image={mug.filepath}
           alt={`bild på ${mug.name}`}
           sx={{
             width: "100%",
-            height: 300,
+            height: 270,
             objectFit: "cover",
-            flexShrink: 0,
           }}
         />
 
         <CardContent
           sx={{
-            height: 220,
-            boxSizing: "border-box",
+            flex: 1,
             display: "flex",
             flexDirection: "column",
+            padding: 2,
           }}
         >
           <Typography
-            gutterBottom
             variant="h5"
-            component="div"
             sx={{
               fontFamily: "Georgia, serif",
               fontWeight: 500,
@@ -63,6 +68,7 @@ export default function ProductCard({ mug, addToCart }: ProductCardProps) {
             variant="body2"
             sx={{
               color: "text.secondary",
+              mt: 1,
             }}
           >
             {mug.description}
@@ -79,12 +85,16 @@ export default function ProductCard({ mug, addToCart }: ProductCardProps) {
           </Typography>
         </CardContent>
       </CardActionArea>
+
       <Button
         variant="contained"
-        onClick={() => addToCart(mug)}
+        onClick={(event) => {
+          event.stopPropagation();
+          addToCart(mug);
+        }}
         sx={{
-          mt: "auto",
           alignSelf: "flex-start",
+          margin: "0 16px 16px",
           backgroundColor: "#7A5236",
           borderRadius: "20px",
           "&:hover": {
